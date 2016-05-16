@@ -2,10 +2,10 @@ angular.module("todoApp", [])
 .controller("TodoListController", function($scope) {
   var todoList = this;
   todoList.todoItems = [
-    { name: "Eat food" },
-    { name: "Go to bus stop" },
-    { name: "Go to school" },
-    { name: "Come home and sleep" }
+    { name: "Go to school", done: false },
+    { name: "Eat lunch", done: false },
+    { name: "Do laundry", done: false },
+    { name: "Buy materials for project", done: false }
   ]
 
   todoList.addTodo = function() {
@@ -16,7 +16,6 @@ angular.module("todoApp", [])
   };
 
   todoList.remove = function() {
-    console.log('remove function fired');
     var oldTodos = todoList.todoItems;
     todoList.todoItems = [];
     angular.forEach(oldTodos, function(todo) {
@@ -24,6 +23,15 @@ angular.module("todoApp", [])
     })
     todoList.todoItems
   };
+
+  todoList.remaining = function() {
+    var notCompletedCount = 0;
+    angular.forEach(todoList.TodoItems, function(todo) {
+      notCompletedCount += todo.done;
+    })
+
+    return notCompletedCount
+  }
 
 
 });
