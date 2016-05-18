@@ -1,12 +1,15 @@
-#add-form {
+#add-form
+ {
   display: inline;
 }
 
-.done-false {
+.done-false
+ {
   color: black;
 }
 
-.done-true {
+.done-true
+ {
   color: gray;
   text-decoration: line-through;
 }
